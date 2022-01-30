@@ -1,0 +1,27 @@
+---
+date: 2022-01-30
+title: Another Blog
+description: Watch out, I'm on a roll!
+---
+
+import { graphql } from 'gatsby';
+import { GatsbyImage, getImage } from 'gatsby-plugin-image';
+
+export const query = graphql`
+query Smashburger {
+        file(name: {eq: "smashburger"}) {
+            childImageSharp {
+                gatsbyImageData(placeholder: DOMINANT_COLOR)
+            }
+        }
+    }
+`;
+
+# Oh Dang
+
+<GatsbyImage
+    image={getImage(props.data.file)}
+    alt={'BURGER!'}
+/>
+
+This blog is even better than the last one
