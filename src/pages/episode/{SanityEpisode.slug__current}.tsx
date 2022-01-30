@@ -27,10 +27,14 @@ const SanityEpisode = ({ data }) => {
 
     return (
         <Layout title={episode.title} description={episode.description}>
-            <GatsbyImage
-                image={getImage(episode.image.asset.gatsbyImageData)}
-                alt={episode.title}
-            />
+            {
+                episode.image?.asset?.gatsbyImageData && (
+                    <GatsbyImage
+                        image={getImage(episode.image.asset.gatsbyImageData)}
+                        alt={episode.title}
+                    />
+                )
+            }
             <h1>{episode.title}</h1>
             <p>
                 (posted {episode.date} - {episode.description}
@@ -48,7 +52,7 @@ const SanityEpisode = ({ data }) => {
                 </li>
             </ul>
         </Layout>
-    )
-}
+    );
+};
 
-export default SanityEpisode
+export default SanityEpisode;
